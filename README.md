@@ -17,12 +17,50 @@ O sistema processa catálogos e regras de negócio em um banco de dados vetorial
 ## ⚙️ Como Executar Localmente
 
 ### 1. Clonar e Preparar o Ambiente
-```bash
+```
 git clone [https://github.com/SEU-USUARIO/floodflow-rag.git](https://github.com/SEU-USUARIO/floodflow-rag.git)
 cd floodflow-rag
 python -m venv venv
-
+````
 # Ative o ambiente (Windows)
+````
 .\venv\Scripts\activate
+````
 # Ative o ambiente (Linux/Mac)
+````
 source venv/bin/activate
+````
+### 2. Instalar Dependências
+
+````
+pip install -r requirements.txt
+````
+### 3. Configurar Variáveis de Ambiente
+Crie um arquivo .env na raiz do projeto contendo sua chave da API do Google AI Studio:
+
+Snippet de código
+GEMINI_API_KEY=sua_chave_api_aqui
+
+### 4. Popular o Banco de Dados (Ingestão)
+Abasteça o ChromaDB com os dados de exemplo do restaurante:
+
+````
+python run_ingestion.py
+5. Iniciar o Servidor
+Bash
+uvicorn app.main:app --reload
+````
+Acesse a documentação interativa (Swagger UI) em: http://127.0.0.1:8000/docs
+
+### 🧠 Exemplo de Requisição (Grounded RAG)
+````
+POST /api/v1/chat/query
+
+JSON
+{
+  "query": "Tem alguma opção sem glúten? Qual o valor?",
+  "filter_dict": null
+}
+````
+O sistema buscará a informação no ChromaDB, montará um prompt protegido contra alucinações, processará via Gemini e retornará a resposta baseada exclusivamente no catálogo do banco, acompanhada das fontes rastreáveis.
+
