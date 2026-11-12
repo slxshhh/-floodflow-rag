@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Prato: Hambúrguer Clássico. Pão brioche, carne bovina 180g, queijo cheddar e maionese da casa. Preço: R$ 35,00.",
+    "metadata": {"category": "lanche", "is_vegan": false, "price": 35.0}
+  },
+  {
+    "content": "Prato: Salada Primavera. Mix de folhas, tomate cereja, cenoura ralada, croutons e molho de mostarda e mel. Opção leve e sem glúten. Preço: R$ 25,00.",
+    "metadata": {"category": "salada", "is_vegan": true, "price": 25.0}
+  },
+  {
+    "content": "Regra de Negócio: O restaurante não realiza entregas fora do raio de 5km. O tempo médio de entrega é de 40 a 50 minutos.",
+    "metadata": {"category": "politica_entrega", "is_vegan": false, "price": 0.0}
+  }
+]
